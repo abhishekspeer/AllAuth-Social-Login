@@ -30,7 +30,7 @@ class Post(models.Model):
 class Author(models.Model):
 	user = models.ForeignKey(User)
 	email = models.EmailField()
-	cellphone_num = models.IntegerField()# "+27"
+	cellphone_num = models.IntegerField()
 
 	def __str__(self):
 		return self.user.username

@@ -1,9 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
-# Create your views here.
-
 from .forms import PostModelForm
 from .models import Post, Author
+
 
 def posts_list(request):
 	all_posts = Post.objects.all()
@@ -37,7 +36,7 @@ def posts_create(request):
 		form.save()
 		messages.info(request, 'Successfully created a new blog post!')
 		return redirect('/posts/')
-		
+
 	context = {
 		'form': form
 	}
@@ -65,14 +64,3 @@ def posts_delete(request, slug):
 	unique_post.delete()
 	messages.info(request, 'Successfully deleted blog post.')
 	return redirect('/posts/')
-
-
-
-
-
-
-
-
-
-
-
